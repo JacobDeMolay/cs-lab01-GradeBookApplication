@@ -23,7 +23,7 @@ namespace GradeBook.GradeBooks
                 throw new System.InvalidOperationException("Less than 5 studs");
             }
 
-            if (averageGrade >= 80)
+            if (averageGrade > 80)
             {
                 return 'A';
             }
@@ -39,7 +39,7 @@ namespace GradeBook.GradeBooks
             {
                 return 'D';
             }
-            else
+            else if (averageGrade < 20)
             {
                 return 'F';
             }
@@ -59,6 +59,13 @@ namespace GradeBook.GradeBooks
                 base.CalculateStatistics();
             }
 
+        }
+        public override void CalculateStudentStatistics(string name)
+        {
+            if(Students.Count < 5)
+                Console.WriteLine("Ranked grading requires at least 5 students.");
+            else
+                base.CalculateStudentStatistics(name);
         }
 
 
